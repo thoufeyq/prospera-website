@@ -5,43 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prospera | Kinetic Energy Tiles</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #0a0a0a; color: #fff; }
-    header { background: #111; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    header nav a { color: #ccc; margin: 0 1rem; text-decoration: none; }
-    header nav a:hover { color: #4effa0; }
-    .hero { background: url('hero-tile.jpg') center/cover no-repeat; text-align: center; padding: 8rem 2rem; }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: #fff; }
-    .hero p { font-size: 1.25rem; color: #ccc; }
-    .btn { background: #4effa0; color: #000; padding: 0.75rem 1.5rem; border: none; font-weight: bold; cursor: pointer; margin-top: 1.5rem; }
-    .section { padding: 4rem 2rem; text-align: center; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .feature-box { background: #1a1a1a; padding: 2rem; border-radius: 10px; }
-    .footer { background: #111; color: #aaa; text-align: center; padding: 2rem; }
-
-    .tile-section {
-      background: url('image/stadium.jpg') center/cover no-repeat;
+    body { 
+      margin: 0; 
+      font-family: Arial, sans-serif; 
+      background: #0a0a0a; 
+      color: #fff; 
+    }
+    
+    header { 
+      background: #111; 
+      padding: 1rem 2rem; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+    
+    header nav a { 
+      color: #ccc; 
+      margin: 0 1rem; 
+      text-decoration: none; 
+    }
+    
+    header nav a:hover { 
+      color: #4effa0; 
+    }
+    
+    .hero { 
+      background: url('hero-tile.jpg') center/cover no-repeat; 
+      text-align: center; 
+      padding: 8rem 2rem; 
+    }
+    
+    .hero h1 { 
+      font-size: 3rem; 
+      margin-bottom: 1rem; 
+      color: #fff; 
+    }
+    
+    .hero p { 
+      font-size: 1.25rem; 
+      color: #ccc; 
+    }
+    
+    .btn { 
+      background: #4effa0; 
+      color: #000; 
+      padding: 0.75rem 1.5rem; 
+      border: none; 
+      font-weight: bold; 
+      cursor: pointer; 
+      margin-top: 1.5rem; 
+    }
+    
+    .section { 
       padding: 4rem 2rem; 
       text-align: center; 
     }
-    .tile-section h2,
-    .tile-section p {
-      text-align: center;
+    
+    .features { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 2rem; 
+      margin-top: 2rem; 
     }
+    
+    .feature-box { 
+      background: #1a1a1a; 
+      padding: 2rem; 
+      border-radius: 10px; 
+    }
+    
+    .footer { 
+      background: #111; 
+      color: #aaa; 
+      text-align: center; 
+      padding: 2rem; 
+    }
+
+    /* Updated Tile Game Section */
+    .tile-game-section {
+      background: url('images/stadium.jpg') center/cover no-repeat;
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .tile-game-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 0;
+    }
+
+    .tile-game-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     .tile-grid { 
       display: grid; 
       grid-template-columns: repeat(5, 60px); 
       grid-gap: 10px; 
       justify-content: center; 
-      margin-top: 2rem; 
+      margin: 2rem auto;
+      position: relative;
+      z-index: 2;
     }
+
     .tile { 
       width: 60px; 
       height: 60px; 
-      background: #333; 
+      background: rgba(51,51,51,0.7); 
       border-radius: 5px; 
-      transition: background 0.3s; 
+      transition: all 0.3s;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    .tile.lit { background: #4effa0; }
+
+    .tile.lit { 
+      background: rgba(78,255,160,0.8); 
+      box-shadow: 0 0 15px rgba(78,255,160,0.6);
+    }
   </style>
 </head>
 <body>
@@ -79,47 +169,45 @@
     </div>
   </section>
 
- <section class="section" id="ads">
-  <h2>See It in Action</h2>
-  <p>Watch how Prospera tiles transform foot traffic into clean energy:</p>
-  <div style="margin: 2rem auto; max-width: 800px;">
-    <video 
-      controls 
-      poster="images/thumnail.jpg" 
-      style="width: 100%; border-radius: 8px; margin-bottom: 1rem;"
-    >
-      <source src="images/prospera-ad.mp4" type="video/mp4">
-      <source src="images/prospera-ad.webm" type="video/webm">
-      <p style="background: #1a1a1a; padding: 1rem; border-radius: 8px;">
-        Can't view the video? <a href="images/prospera-ad.mp4" style="color: #4effa0;">Download it here</a>
-      </p>
-    </video>
-  </div>
-  <p style="color: #ccc; font-size: 0.9rem;">
-    Demonstration of kinetic tiles at Mumbai International Airport generating 5kW daily
-  </p>
-</section>
-
-  <section class="tile-section">
-    <h2>Try It: Energy Flow in Action</h2>
-    <p>Click the tile to simulate energy lighting up the path.</p>
-    <img src="images/stadium.jpg" alt="Stadium">
-    <div class="tile-grid" id="tileGrid">
-      <!-- 25 tiles -->
-      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
-      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
-      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
-      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
-      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+  <section class="section" id="ads">
+    <h2>See It in Action</h2>
+    <p>Watch how Prospera tiles transform foot traffic into clean energy:</p>
+    <div style="margin: 2rem auto; max-width: 800px;">
+      <video controls poster="images/thumbnail.jpg" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+        <source src="images/prospera-ad.mp4" type="video/mp4">
+        <source src="images/prospera-ad.webm" type="video/webm">
+        <p style="background: #1a1a1a; padding: 1rem; border-radius: 8px;">
+          Can't view the video? <a href="images/prospera-ad.mp4" style="color: #4effa0;">Download it here</a>
+        </p>
+      </video>
     </div>
-    <button class="btn" onclick="lightTiles()">Click to Jump!</button>
+    <p style="color: #ccc; font-size: 0.9rem;">
+      Demonstration of kinetic tiles at Mumbai International Airport generating 5kW daily
+    </p>
   </section>
 
-  <h2 style="text-align: center;">Energy at Every Step</h2>
+  <section class="tile-game-section">
+    <div class="tile-game-container">
+      <h2>Try It: Energy Flow in Action</h2>
+      <p>Click the button to simulate energy lighting up the path</p>
+      <div class="tile-grid" id="tileGrid">
+        <!-- 25 tiles -->
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+      </div>
+      <button class="btn" onclick="lightTiles()">Generate Energy!</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="text-align: center;">Energy at Every Step</h2>
     <div style="text-align: center;">
       <button class="btn" style="margin-top: 1rem;" onclick="location.href='buy-tiles.html'">Buy Tiles</button>
     </div>
-    <p>Prospera's kinetic tiles turn everyday movement into an opportunity to power, inspire, and connect your community with green energy innovation.</p>
+    <p style="text-align: center;">Prospera's kinetic tiles turn everyday movement into an opportunity to power, inspire, and connect your community with green energy innovation.</p>
   </section>
 
   <footer class="footer" id="contact">
@@ -136,10 +224,21 @@
   <script>
     function lightTiles() {
       const tiles = document.querySelectorAll('.tile');
-      tiles.forEach(tile => tile.classList.add('lit'));
-      setTimeout(() => {
-        tiles.forEach(tile => tile.classList.remove('lit'));
-      }, 2000);
+      
+      // First reset all tiles
+      tiles.forEach(tile => tile.classList.remove('lit'));
+      
+      // Light up tiles in sequence
+      tiles.forEach((tile, index) => {
+        setTimeout(() => {
+          tile.classList.add('lit');
+          
+          // Turn off after 1 second
+          setTimeout(() => {
+            tile.classList.remove('lit');
+          }, 1000);
+        }, index * 100);
+      });
     }
   </script>
 </body>
