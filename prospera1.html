@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prospera | Kinetic Energy Tiles</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #0a0a0a; color: #fff; }
+    header { background: #111; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header nav a { color: #ccc; margin: 0 1rem; text-decoration: none; }
+    header nav a:hover { color: #4effa0; }
+    .hero { background: url('hero-tile.jpg') center/cover no-repeat; text-align: center; padding: 8rem 2rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: #fff; }
+    .hero p { font-size: 1.25rem; color: #ccc; }
+    .btn { background: #4effa0; color: #000; padding: 0.75rem 1.5rem; border: none; font-weight: bold; cursor: pointer; margin-top: 1.5rem; }
+    .section { padding: 4rem 2rem; text-align: center; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .feature-box { background: #1a1a1a; padding: 2rem; border-radius: 10px; }
+    .footer { background: #111; color: #aaa; text-align: center; padding: 2rem; }
+
+    .tile-section {
+      background: url('stadium-bg.jpg') center/cover no-repeat;
+      padding: 4rem 2rem; 
+      text-align: center; 
+    }
+    .tile-section h2,
+    .tile-section p {
+      text-align: center;
+    }
+    .tile-grid { 
+      display: grid; 
+      grid-template-columns: repeat(5, 60px); 
+      grid-gap: 10px; 
+      justify-content: center; 
+      margin-top: 2rem; 
+    }
+    .tile { 
+      width: 60px; 
+      height: 60px; 
+      background: #333; 
+      border-radius: 5px; 
+      transition: background 0.3s; 
+    }
+    .tile.lit { background: #4effa0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>PROSPERA</strong></div>
+    <nav>
+      <a href="#solutions">Solutions</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="btn">Get in Touch</button>
+  </header>
+
+  <section class="hero">
+    <h1>Steps into Power, Power into Progress</h1>
+    <p>Interactive kinetic tiles that generate clean energy and empower smart urban spaces.</p>
+    <button class="btn">Explore in 60s</button>
+  </section>
+
+  <section class="section" id="solutions">
+    <h2>Empower Every Step</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3>Off-Grid Energy</h3>
+        <p>Generate electricity from footsteps and power lighting or signage without relying on the grid.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Engage & Educate</h3>
+        <p>Bring sustainability to life in schools, parks, and campuses with real-time, visible results.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Footfall Insights</h3>
+        <p>Capture data on pedestrian activity and movement to inform urban planning decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ads">
+    <h2>Advertisement</h2>
+    <p>Place your promotional video or banner here to showcase the impact and innovation of Prospera’s kinetic energy tiles.</p>
+    <div style="margin: 2rem auto; max-width: 800px;">
+      <img src="placeholder-ad.jpg" alt="Kinetic Energy Tile Advertisement" style="width: 100%; border-radius: 10px;">
+    </div>
+  </section>
+
+  <section class="tile-section">
+    <h2>Try It: Energy Flow in Action</h2>
+    <p>Click the tile to simulate energy lighting up the path.</p>
+    <div class="tile-grid" id="tileGrid">
+      <!-- 25 tiles -->
+      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+      <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+    </div>
+    <button class="btn" onclick="lightTiles()">Click to Jump!</button>
+  </section>
+
+  <h2 style="text-align: center;">Energy at Every Step</h2>
+    <div style="text-align: center;">
+      <button class="btn" style="margin-top: 1rem;" onclick="location.href='buy-tiles.html'">Buy Tiles</button>
+    </div>
+    <p>Prospera's kinetic tiles turn everyday movement into an opportunity to power, inspire, and connect your community with green energy innovation.</p>
+  </section>
+
+  <footer class="footer" id="contact">
+    <p>Follow us on social media:</p>
+    <p>
+      <a href="#" style="color:#4effa0;">Instagram</a> |
+      <a href="#" style="color:#4effa0;">LinkedIn</a> |
+      <a href="#" style="color:#4effa0;">Twitter</a>
+    </p>
+    <p>Contact us: info@prospera.energy | +91-XXXXXXXXXX</p>
+    <p>&copy; 2025 Prospera Systems Pvt. Ltd.</p>
+  </footer>
+
+  <script>
+    function lightTiles() {
+      const tiles = document.querySelectorAll('.tile');
+      tiles.forEach(tile => tile.classList.add('lit'));
+      setTimeout(() => {
+        tiles.forEach(tile => tile.classList.remove('lit'));
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
