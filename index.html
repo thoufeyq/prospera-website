@@ -24,6 +24,7 @@
       color: #ccc; 
       margin: 0 1rem; 
       text-decoration: none; 
+      transition: color 0.3s ease;
     }
     
     header nav a:hover { 
@@ -31,20 +32,36 @@
     }
     
     .hero { 
-      background: url('hero-tile.jpg') center/cover no-repeat; 
+      background: url('images/hero-bg.jpg') center/cover no-repeat; 
       text-align: center; 
       padding: 8rem 2rem; 
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
     }
     
     .hero h1 { 
       font-size: 3rem; 
       margin-bottom: 1rem; 
       color: #fff; 
+      position: relative;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
     
     .hero p { 
       font-size: 1.25rem; 
       color: #ccc; 
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
     }
     
     .btn { 
@@ -55,6 +72,13 @@
       font-weight: bold; 
       cursor: pointer; 
       margin-top: 1.5rem; 
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(78,255,160,0.4);
     }
     
     .section { 
@@ -73,6 +97,11 @@
       background: #1a1a1a; 
       padding: 2rem; 
       border-radius: 10px; 
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-5px);
     }
     
     .footer { 
@@ -82,12 +111,37 @@
       padding: 2rem; 
     }
 
+    /* Stats Section */
+    .stats-section {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 3rem 2rem;
+      background: #141414;
+    }
+    
+    .stat-box {
+      padding: 1.5rem;
+      min-width: 200px;
+    }
+    
+    .stat-box h3 {
+      font-size: 2.5rem;
+      color: #4effa0;
+      margin: 0.5rem 0;
+    }
+
     /* Updated Tile Game Section */
     .tile-game-section {
       background: url('images/stadium.jpg') center/cover no-repeat;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
       text-align: center;
       position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-attachment: fixed;
     }
 
     .tile-game-section::before {
@@ -97,13 +151,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.6);
       z-index: 0;
     }
 
     .tile-game-container {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -115,13 +169,12 @@
       justify-content: center; 
       margin: 2rem auto;
       position: relative;
-      z-index: 2;
     }
 
     .tile { 
       width: 60px; 
       height: 60px; 
-      background: rgba(51,51,51,0.7); 
+      background: rgba(30,30,30,0.9); 
       border-radius: 5px; 
       transition: all 0.3s;
       backdrop-filter: blur(2px);
@@ -129,8 +182,8 @@
     }
 
     .tile.lit { 
-      background: rgba(78,255,160,0.8); 
-      box-shadow: 0 0 15px rgba(78,255,160,0.6);
+      background: rgba(100,255,180,0.9); 
+      box-shadow: 0 0 15px rgba(100,255,180,0.8);
     }
   </style>
 </head>
@@ -166,6 +219,21 @@
         <h3>Footfall Insights</h3>
         <p>Capture data on pedestrian activity and movement to inform urban planning decisions.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="stat-box">
+      <h3>5.7kW</h3>
+      <p>Daily generation at Mumbai Airport</p>
+    </div>
+    <div class="stat-box">
+      <h3>1.2M</h3>
+      <p>Steps powered annually</p>
+    </div>
+    <div class="stat-box">
+      <h3>85%</h3>
+      <p>Efficiency rate</p>
     </div>
   </section>
 
@@ -211,33 +279,58 @@
   </section>
 
   <footer class="footer" id="contact">
-    <p>Follow us on social media:</p>
-    <p>
-      <a href="#" style="color:#4effa0;">Instagram</a> |
-      <a href="#" style="color:#4effa0;">LinkedIn</a> |
-      <a href="#" style="color:#4effa0;">Twitter</a>
-    </p>
-    <p>Contact us: info@prospera.energy | +91-9840225870</p>
-    <p>&copy; 2025 Prospera Energy Pvt. Ltd.</p>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="contact-form">
+          <h3>Get a Custom Quote</h3>
+          <form style="display: grid; gap: 1rem;">
+            <input type="text" placeholder="Name" style="padding: 0.75rem; background: #222; border: none; color: white;">
+            <input type="email" placeholder="Email" style="padding: 0.75rem; background: #222; border: none; color: white;">
+            <textarea placeholder="Project Details" style="padding: 0.75rem; background: #222; border: none; color: white; min-height: 100px;"></textarea>
+            <button type="submit" class="btn">Request Proposal</button>
+          </form>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <h3>Quick Links</h3>
+          <a href="#" style="color: #4effa0; margin: 0.5rem 0;">Case Studies</a>
+          <a href="#" style="color: #4effa0; margin: 0.5rem 0;">Technical Specs</a>
+          <a href="#" style="color: #4effa0; margin: 0.5rem 0;">Installation Guide</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 2rem;">
+      <p>Follow us on social media:</p>
+      <p>
+        <a href="#" style="color:#4effa0;">Instagram</a> |
+        <a href="#" style="color:#4effa0;">LinkedIn</a> |
+        <a href="#" style="color:#4effa0;">Twitter</a>
+      </p>
+      <p>Contact us: info@prospera.energy | +91-9840225870</p>
+      <p>&copy; 2025 Prospera Energy Pvt. Ltd.</p>
+    </div>
   </footer>
 
   <script>
     function lightTiles() {
       const tiles = document.querySelectorAll('.tile');
+      const patterns = [
+        [0,6,12,18,24], // Diagonal
+        [0,1,2,3,4], // First row
+        [4,9,14,19,24], // Other diagonal
+        [0,5,10,15,20] // First column
+      ];
+      
+      const randomPattern = patterns[Math.floor(Math.random()*patterns.length)];
       
       // First reset all tiles
       tiles.forEach(tile => tile.classList.remove('lit'));
       
-      // Light up tiles in sequence
-      tiles.forEach((tile, index) => {
+      // Light up tiles in pattern
+      randomPattern.forEach((pos, i) => {
         setTimeout(() => {
-          tile.classList.add('lit');
-          
-          // Turn off after 1 second
-          setTimeout(() => {
-            tile.classList.remove('lit');
-          }, 1000);
-        }, index * 100);
+          tiles[pos].classList.add('lit');
+          setTimeout(() => tiles[pos].classList.remove('lit'), 800);
+        }, i * 300);
       });
     }
   </script>
